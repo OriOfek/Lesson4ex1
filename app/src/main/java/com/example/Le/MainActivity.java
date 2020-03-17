@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -15,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
 
     int sum;
     int sumcorect;
+    boolean finish1;
+    boolean finish2;
     ImageView ivr1;
     ImageView ivr2;
     String str;
@@ -38,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
         sum = 0;
         str = "";
         sumcorect = 0;
+        finish1 = false;
+        finish2 = false;
 
 
         //wedding the ImageView
@@ -74,36 +79,54 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void check1(View view) {
-        sum = Integer.parseInt(etr1.getText().toString());
-        if (sum == num1 + num2)
+        if((gamestart == true) && (etr1.getText().toString() == ""))
         {
-            sumcorect ++;
-            ivr1.setImageResource(R.drawable.correct);
+            sum = Integer.parseInt(etr1.getText().toString());
+            if (sum == num1 + num2) {
+                sumcorect++;
+                ivr1.setImageResource(R.drawable.correct);
+            } else {
+                ivr1.setImageResource(R.drawable.redx);
+            }
+            num1 = rnd.nextInt(100);
+            num2 = rnd.nextInt(100);
+            n1r2.setText(String.valueOf(num1));
+            n2r2.setText(String.valueOf(num2));
+            finish1 = true;
         }
-        else
-        {
-            ivr1.setImageResource(R.drawable.redx);
-        }
-        num1 = rnd.nextInt(100);
-        num2 = rnd.nextInt(100);
-        n1r2.setText(String.valueOf(num1));
-        n2r2.setText(String.valueOf(num2));
     }
 
     public void check2(View view) {
-        sum = Integer.parseInt(etr2.getText().toString());
-        if (sum == num1 + num2)
-        {
-            sumcorect ++;
-            ivr2.setImageResource(R.drawable.correct);
+        if ((finish1 == true) && (etr2.getText().toString() == "")) {
+            sum = Integer.parseInt(etr2.getText().toString());
+            if (sum == num1 + num2) {
+                sumcorect++;
+                ivr2.setImageResource(R.drawable.correct);
+            } else {
+                ivr2.setImageResource(R.drawable.redx);
+            }
+            num1 = rnd.nextInt(100);
+            num2 = rnd.nextInt(100);
+            n1r3.setText(String.valueOf(num1));
+            n2r3.setText(String.valueOf(num2));
+            finish2 = true;
         }
-        else
-        {
-            ivr2.setImageResource(R.drawable.redx);
+    }
+
+    public void check3(View view) {
+        if ((finish2 == true) && (etr3.getText().toString() == "")) {
+            sum = Integer.parseInt(etr3.getText().toString());
+            if (sum == num1 + num2) {
+                sumcorect++;
+                ivr3.setImageResource(R.drawable.correct);
+            } else {
+                ivr3.setImageResource(R.drawable.redx);
+            }
+
+            Toast.makeText(getApplicationContext(), "accurty = " + "" + ((sumcorect/3)*100) , Toast.LENGTH_SHORT).show();
+            finish2 = false;
+            finish1 = false;
+            gamestart = false;
         }
-        num1 = rnd.nextInt(100);
-        num2 = rnd.nextInt(100);
-        n1r3.setText(String.valueOf(num1));
-        n2r3.setText(String.valueOf(num2));
     }
 }

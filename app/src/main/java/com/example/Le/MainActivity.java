@@ -3,6 +3,7 @@ package com.example.Le;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -12,14 +13,18 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
+    int sum;
+    int sumcorect;
     ImageView ivr1;
     ImageView ivr2;
+    String str;
     ImageView ivr3;
     TextView n1r1,n2r1,n1r2,n2r2,n1r3,n2r3;
     int num1,num2;
     Random rnd;
+    boolean gamestart;
     Button check1,check2,check3,newgame;
-    EditText r1,r2,r3;
+    EditText etr1,etr2,etr3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +34,21 @@ public class MainActivity extends AppCompatActivity {
         rnd = new Random();
         num1 = 0;
         num2 = 0;
+        gamestart = false;
+        sum = 0;
+        str = "";
+        sumcorect = 0;
+
 
         //wedding the ImageView
         ivr1 = (ImageView) findViewById(R.id.ivr1);
         ivr2 = (ImageView) findViewById(R.id.ivr2);
         ivr3 = (ImageView) findViewById(R.id.ivr3);
+
+        //wedding the editText
+        etr1 = (EditText) findViewById(R.id.etr1);
+        etr2 = (EditText) findViewById(R.id.etr2);
+        etr3 = (EditText) findViewById(R.id.etr3);
 
         // wedding the TextView
         n1r1 = (TextView) findViewById(R.id.n1r1);
@@ -48,5 +63,47 @@ public class MainActivity extends AppCompatActivity {
         check2 = (Button) findViewById(R.id.btnr2);
         check3 = (Button) findViewById(R.id.btnr3);
         newgame = (Button) findViewById(R.id.newbtn);
+    }
+
+    public void start(View view) {
+        gamestart = true;
+        num1 = rnd.nextInt(100);
+        num2 = rnd.nextInt(100);
+        n1r1.setText(String.valueOf(num1));
+        n2r1.setText(String.valueOf(num2));
+    }
+
+    public void check1(View view) {
+        sum = Integer.parseInt(etr1.getText().toString());
+        if (sum == num1 + num2)
+        {
+            sumcorect ++;
+            ivr1.setImageResource(R.drawable.correct);
+        }
+        else
+        {
+            ivr1.setImageResource(R.drawable.redx);
+        }
+        num1 = rnd.nextInt(100);
+        num2 = rnd.nextInt(100);
+        n1r2.setText(String.valueOf(num1));
+        n2r2.setText(String.valueOf(num2));
+    }
+
+    public void check2(View view) {
+        sum = Integer.parseInt(etr2.getText().toString());
+        if (sum == num1 + num2)
+        {
+            sumcorect ++;
+            ivr2.setImageResource(R.drawable.correct);
+        }
+        else
+        {
+            ivr2.setImageResource(R.drawable.redx);
+        }
+        num1 = rnd.nextInt(100);
+        num2 = rnd.nextInt(100);
+        n1r3.setText(String.valueOf(num1));
+        n2r3.setText(String.valueOf(num2));
     }
 }

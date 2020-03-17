@@ -72,6 +72,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void start(View view) {
         gamestart = true;
+        sumcorect = 0;
+        ivr1.setImageResource(R.drawable.ic_launcher_foreground);
+        ivr2.setImageResource(R.drawable.ic_launcher_foreground);
+        ivr3.setImageResource(R.drawable.ic_launcher_foreground);
+        n1r1.setText("empty");
+        n2r1.setText("empty");
+        n2r2.setText("empty");
+        n1r2.setText("empty");
+        n2r3.setText("empty");
+        n1r3.setText("empty");
         num1 = rnd.nextInt(100);
         num2 = rnd.nextInt(100);
         n1r1.setText(String.valueOf(num1));
@@ -140,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
             finish2 = false;
             finish1 = false;
             gamestart = false;
+
         }
     }
 }

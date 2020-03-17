@@ -157,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
                 ivr3.setImageResource(R.drawable.redx);
             }
             if (finish2 == true) {
-                Toast.makeText(getApplicationContext(), "accurty = " + sumcorect + "/3  " + ((sumcorect / 3) * 100) + "%", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "accurty = " + sumcorect + "/3  " +  ((sumcorect / 3.0) * 100) + "%", Toast.LENGTH_LONG).show();
                 finish2 = false;
                 finish1 = false;
                 gamestart = false;

@@ -1,6 +1,7 @@
 package com.example.Le;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.graphics.drawable.DrawerArrowDrawable;
 
 import android.os.Bundle;
 import android.view.View;
@@ -73,9 +74,11 @@ public class MainActivity extends AppCompatActivity {
     public void start(View view) {
         gamestart = true;
         sumcorect = 0;
-        ivr1.setImageResource(R.drawable.ic_launcher_foreground);
-        ivr2.setImageResource(R.drawable.ic_launcher_foreground);
-        ivr3.setImageResource(R.drawable.ic_launcher_foreground);
+
+        ivr1.setImageResource(R.drawable.whitebag);
+        ivr2.setImageResource(R.drawable.whitebag);
+        ivr3.setImageResource(R.drawable.whitebag);
+
         n1r1.setText("empty");
         n2r1.setText("empty");
         n2r2.setText("empty");

@@ -26,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        rnd = new Random();
+        num1 = 0;
+        num2 = 0;
+
         //wedding the ImageView
         ivr1 = (ImageView) findViewById(R.id.ivr1);
         ivr2 = (ImageView) findViewById(R.id.ivr2);

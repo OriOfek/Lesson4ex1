@@ -79,7 +79,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void check1(View view) {
-        if((gamestart == true) && (etr1.getText().toString() == ""))
+        str = etr1.getText().toString();
+        if (str.matches("") && (gamestart == true)) {
+            Toast.makeText(this, "put the summery of the numbers above", Toast.LENGTH_SHORT).show();
+        }
+        else if((gamestart == true) && (etr1.getText().toString() != ""))
         {
             sum = Integer.parseInt(etr1.getText().toString());
             if (sum == num1 + num2) {
@@ -97,7 +101,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void check2(View view) {
-        if ((finish1 == true) && (etr2.getText().toString() == "")) {
+        str = etr2.getText().toString();
+        if (str.matches("") && (finish1 == true)) {
+            Toast.makeText(this, "put the summery of the numbers above", Toast.LENGTH_SHORT).show();
+        }
+        else if ((finish1 == true) && (etr2.getText().toString() != "")) {
             sum = Integer.parseInt(etr2.getText().toString());
             if (sum == num1 + num2) {
                 sumcorect++;
@@ -114,7 +122,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void check3(View view) {
-        if ((finish2 == true) && (etr3.getText().toString() == "")) {
+
+        str = etr3.getText().toString();
+        if (str.matches("") && (finish2 == true)) {
+            Toast.makeText(this, "put the summery of the numbers above", Toast.LENGTH_SHORT).show();
+        }
+         else if ((finish2 == true)) {
             sum = Integer.parseInt(etr3.getText().toString());
             if (sum == num1 + num2) {
                 sumcorect++;
@@ -123,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
                 ivr3.setImageResource(R.drawable.redx);
             }
 
-            Toast.makeText(getApplicationContext(), "accurty = " + "" + ((sumcorect/3)*100) , Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "accurty = " + sumcorect + "/3 " + ((sumcorect/3) * 100) + "%" , Toast.LENGTH_LONG).show();
             finish2 = false;
             finish1 = false;
             gamestart = false;

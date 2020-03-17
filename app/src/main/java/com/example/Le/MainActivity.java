@@ -78,7 +78,8 @@ public class MainActivity extends AppCompatActivity {
         ivr1.setImageResource(R.drawable.whitebag);
         ivr2.setImageResource(R.drawable.whitebag);
         ivr3.setImageResource(R.drawable.whitebag);
-
+        finish2 = false;
+        finish1 = false;
         n1r1.setText("empty");
         n2r1.setText("empty");
         n2r2.setText("empty");
@@ -105,11 +106,16 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 ivr1.setImageResource(R.drawable.redx);
             }
-            num1 = rnd.nextInt(100);
-            num2 = rnd.nextInt(100);
-            n1r2.setText(String.valueOf(num1));
-            n2r2.setText(String.valueOf(num2));
-            finish1 = true;
+            if (finish1 == false)
+            {
+                num1 = num1 + num2;
+                num2 = rnd.nextInt(100);
+                n1r2.setText(String.valueOf(num1));
+                n2r2.setText(String.valueOf(num2));
+                finish1 = true;
+
+            }
+
         }
     }
 
@@ -126,11 +132,13 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 ivr2.setImageResource(R.drawable.redx);
             }
-            num1 = rnd.nextInt(100);
-            num2 = rnd.nextInt(100);
-            n1r3.setText(String.valueOf(num1));
-            n2r3.setText(String.valueOf(num2));
-            finish2 = true;
+            if (finish2 == false) {
+                num1 = num2 + num1;
+                num2 = rnd.nextInt(100);
+                n1r3.setText(String.valueOf(num1));
+                n2r3.setText(String.valueOf(num2));
+                finish2 = true;
+            }
         }
     }
 
@@ -148,11 +156,12 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 ivr3.setImageResource(R.drawable.redx);
             }
-
-            Toast.makeText(getApplicationContext(), "accurty = " + sumcorect + "/3 " + ((sumcorect/3) * 100) + "%" , Toast.LENGTH_LONG).show();
-            finish2 = false;
-            finish1 = false;
-            gamestart = false;
+            if (finish2 == true) {
+                Toast.makeText(getApplicationContext(), "accurty = " + sumcorect + "/3  " + ((sumcorect / 3) * 100) + "%", Toast.LENGTH_LONG).show();
+                finish2 = false;
+                finish1 = false;
+                gamestart = false;
+            }
 
         }
     }

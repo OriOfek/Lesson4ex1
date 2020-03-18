@@ -23,12 +23,12 @@ public class MainActivity extends AppCompatActivity {
     ImageView ivr2;
     String str;
     ImageView ivr3;
-    TextView n1r1,n2r1,n1r2,n2r2,n1r3,n2r3;
-    int num1,num2;
+    TextView n1r1, n2r1, n1r2, n2r2, n1r3, n2r3;
+    int num1, num2;
     Random rnd;
     boolean gamestart;
-    Button check1,check2,check3,newgame;
-    EditText etr1,etr2,etr3;
+    Button check1, check2, check3, newgame;
+    EditText etr1, etr2, etr3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,9 +96,7 @@ public class MainActivity extends AppCompatActivity {
         str = etr1.getText().toString();
         if (str.matches("") && (gamestart == true)) {
             Toast.makeText(this, "put the summery of the numbers above", Toast.LENGTH_SHORT).show();
-        }
-        else if((gamestart == true) && (etr1.getText().toString() != ""))
-        {
+        } else if ((gamestart == true) && (etr1.getText().toString() != "") && (finish1 == false)) {
             sum = Integer.parseInt(etr1.getText().toString());
             if (sum == num1 + num2) {
                 sumcorect++;
@@ -106,25 +104,21 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 ivr1.setImageResource(R.drawable.redx);
             }
-            if (finish1 == false)
-            {
-                num1 = num1 + num2;
-                num2 = rnd.nextInt(100);
-                n1r2.setText(String.valueOf(num1));
-                n2r2.setText(String.valueOf(num2));
-                finish1 = true;
-
-            }
+            num1 = num1 + num2;
+            num2 = rnd.nextInt(100);
+            n1r2.setText(String.valueOf(num1));
+            n2r2.setText(String.valueOf(num2));
+            finish1 = true;
 
         }
+
     }
 
     public void check2(View view) {
         str = etr2.getText().toString();
         if (str.matches("") && (finish1 == true)) {
             Toast.makeText(this, "put the summery of the numbers above", Toast.LENGTH_SHORT).show();
-        }
-        else if ((finish1 == true) && (etr2.getText().toString() != "")) {
+        } else if ((finish1 == true) && (etr2.getText().toString() != "") && (finish2 == false)) {
             sum = Integer.parseInt(etr2.getText().toString());
             if (sum == num1 + num2) {
                 sumcorect++;
@@ -132,13 +126,11 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 ivr2.setImageResource(R.drawable.redx);
             }
-            if (finish2 == false) {
-                num1 = num2 + num1;
-                num2 = rnd.nextInt(100);
-                n1r3.setText(String.valueOf(num1));
-                n2r3.setText(String.valueOf(num2));
-                finish2 = true;
-            }
+            num1 = num2 + num1;
+            num2 = rnd.nextInt(100);
+            n1r3.setText(String.valueOf(num1));
+            n2r3.setText(String.valueOf(num2));
+            finish2 = true;
         }
     }
 

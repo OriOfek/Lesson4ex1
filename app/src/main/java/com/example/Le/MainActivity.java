@@ -86,6 +86,11 @@ public class MainActivity extends AppCompatActivity {
         n1r2.setText("empty");
         n2r3.setText("empty");
         n1r3.setText("empty");
+
+        etr1.setText("");
+        etr2.setText("");
+        etr3.setText("");
+
         num1 = rnd.nextInt(100);
         num2 = rnd.nextInt(100);
         n1r1.setText(String.valueOf(num1));

@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Locale;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -154,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
                 ivr3.setImageResource(R.drawable.redx);
             }
             if (finish2 == true) {
-                Toast.makeText(getApplicationContext(), "accurty = " + sumcorect + "/3  " +  ((float)((Math.round(sumcorect / 3.0 * 100* 100) / 100))) + "%", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "accurty = " + sumcorect + "/3  " +  String.format(Locale.US,"%.2f",(sumcorect / 3.0 * 100) ) + "%", Toast.LENGTH_LONG).show();
                 finish2 = false;
                 finish1 = false;
                 gamestart = false;

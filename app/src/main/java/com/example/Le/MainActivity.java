@@ -76,9 +76,9 @@ public class MainActivity extends AppCompatActivity {
         gamestart = true;
         sumcorect = 0;
 
-        ivr1.setImageResource(R.drawable.whitebag);
-        ivr2.setImageResource(R.drawable.whitebag);
-        ivr3.setImageResource(R.drawable.whitebag);
+        ivr1.setImageResource(R.drawable.unnamed);
+        ivr2.setImageResource(R.drawable.unnamed);
+        ivr3.setImageResource(R.drawable.unnamed);
         finish2 = false;
         finish1 = false;
         n1r1.setText("empty");
